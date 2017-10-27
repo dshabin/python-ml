@@ -6,9 +6,26 @@ X = dataset.iloc[:,:-1].values
 y = dataset.iloc[:,3]
 print(dataset)
 
-from sklearn.preprocessing import Imputer
 # replacing NaN values with the MEAN of column
+from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values = 'NaN' , strategy = 'mean' , axis=0)
 imputer.fit(X[:,1:3])
 X[:,1:3] = imputer.transform(X[:,1:3])
 print(X)
+
+#Encoding categorical data
+from sklearn.preprocessing import LabelEncoder
+labelencoder_X = LabelEncoder()
+X[:,0] = labelencoder_X.fit_transform(X[:,0])
+print(X)
+
+#create dummy variables
+from sklearn.preprocessing import OneHotEncoder
+#which colum should be encoded
+onehotencoder = OneHotEncoder(categorical_features = [0])
+X = onehotencoder.fit_transform(X).toarray()
+print(X)
+#encoding YES and NO colum
+labelencoder_y = LabelEncoder()
+y = labelencoder_y.fit_transform(y)
+print(y)
