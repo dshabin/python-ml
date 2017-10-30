@@ -28,10 +28,11 @@ plt.plot(X, lin_reg.predict(X), color = 'blue')
 plt.title('Truth or Bluff (Linear regression) ')
 plt.xlabel('Position level')
 plt.ylabel('Salary')
-plt.show()
+#plt.show()
 
 # Visualising the Polynomial regression results
 import matplotlib.pyplot as plt
+
 #for high res
 X_grid = np.arange(min(X),max(X) , 0.1)
 X_grid = X_grid.reshape((len(X_grid),1))
@@ -41,4 +42,12 @@ plt.plot(X_grid, lin_reg_2.predict(poly_reg.fit_transform(X_grid)), color = 'blu
 plt.title('Truth or Bluff (Polynomial regression) ')
 plt.xlabel('Position level')
 plt.ylabel('Salary')
-plt.show()
+#plt.show()
+
+#Predicting a new result with linear regression
+#instead of passing a matrix to func , simply pass a value
+print(lin_reg.predict(6.5))
+
+
+#Predicting a new result with polynomial regression
+print(lin_reg_2.predict(poly_reg.fit_transform(6.5)))
