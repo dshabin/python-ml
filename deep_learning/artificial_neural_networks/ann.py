@@ -78,10 +78,11 @@ classifier.add(Dense(output_dim = 1 , init = 'uniform', activation = 'sigmoid'))
 
 # compiling ANN
 classifier.compile(optimizer = 'adam' ,loss = 'binary_crossentropy' , metrics = ['accuracy'])
-
 #fitting the ANN to the trainging set
 # batch size is the number of observation after wich we want to update the weights
 classifier.fit(X_train , y_train , batch_size = 10 , nb_epoch = 100 )
+
+classifier.save('my_model.h5')
 
 
 # part 3 - Making the prediction and evaluating the model
