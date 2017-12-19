@@ -29,7 +29,6 @@ classifier = DecisionTreeClassifier(criterion = 'entropy' , random_state = 0 )
 classifier.fit(X_train,y_train)
 
 
-
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
 
@@ -37,6 +36,17 @@ y_pred = classifier.predict(X_test)
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
 
+print(cm)
+
+"""
+for i in range(100):
+    ypp = classifier.predict(X_test[i].reshape(1, -1))
+    print(ypp)
+
+"""
+
+
+"""
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap
 X_set, y_set = X_train, y_train
@@ -72,3 +82,4 @@ plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
 plt.show()
+"""
